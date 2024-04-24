@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ea7afeb-99b4-4c58-9461-4c2958a33a34" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/Business/RoomManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/Business/RoomManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/RoomView/RoomView$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Business/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/RoomManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/RoomView/RoomView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RoomView/RoomView.java" afterDir="false" />
-    </list>
+    <list default="true" id="9ea7afeb-99b4-4c58-9461-4c2958a33a34" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +97,7 @@
       <workItem from="1713976372158" duration="281000" />
       <workItem from="1713976657825" duration="68000" />
       <workItem from="1713977226500" duration="131000" />
-      <workItem from="1713977480868" duration="926000" />
+      <workItem from="1713977480868" duration="2052000" />
     </task>
     <servers />
   </component>
