@@ -65,7 +65,7 @@ public class RoomView extends Layout {
 
     public RoomView(Room room) {
         this.add(container);
-        this.initializeGui(350, 450);
+        this.initializeGui(400, 450);
         this.room = room;
         this.roomManager = new RoomManager();
         this.hotelManager = new HotelManager();
@@ -179,9 +179,9 @@ public class RoomView extends Layout {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    roomFeaturesList.add(chk_tv.getText());
+                    roomFeaturesList.add(chk_bar.getText());
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    roomFeaturesList.remove(chk_tv.getText());
+                    roomFeaturesList.remove(chk_bar.getText());
                 }
             }
         });
@@ -189,9 +189,9 @@ public class RoomView extends Layout {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    roomFeaturesList.add(chk_tv.getText());
+                    roomFeaturesList.add(chk_console.getText());
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    roomFeaturesList.remove(chk_tv.getText());
+                    roomFeaturesList.remove(chk_console.getText());
                 }
             }
         });
@@ -199,9 +199,9 @@ public class RoomView extends Layout {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    roomFeaturesList.add(chk_tv.getText());
+                    roomFeaturesList.add(chk_safe.getText());
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    roomFeaturesList.remove(chk_tv.getText());
+                    roomFeaturesList.remove(chk_safe.getText());
                 }
             }
         });
@@ -209,9 +209,9 @@ public class RoomView extends Layout {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    roomFeaturesList.add(chk_tv.getText());
+                    roomFeaturesList.add(chk_projection.getText());
                 } else if (e.getStateChange() == ItemEvent.DESELECTED) {
-                    roomFeaturesList.remove(chk_tv.getText());
+                    roomFeaturesList.remove(chk_projection.getText());
                 }
             }
         });

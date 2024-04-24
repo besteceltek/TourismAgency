@@ -26,7 +26,7 @@ public class RoomManager {
     }
 
     public boolean save(Room room) {
-        if (room.getHotelId() != 0) {
+        if (room.getRoomId() != 0) {
             Helper.showMessage("room kaydedilemedi");
         }
         return this.roomDao.save(room);
