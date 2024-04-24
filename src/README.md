@@ -1,0 +1,43 @@
+# Turizm Acente Sistemi
+
+Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirmeyi ve müşteri rezervasyon süreçlerini optimize etmeyi amaçlamaktadır. Şu anda projenin eksikleri aşağıda belirtilmiştir:
+
+## Eksikler
+
+1. **Fiyat Yönetimi:** Odaların fiyatlandırması ve dönemsel değişkenlikleri yönetmek için gerekli olan fiyat yönetimi henüz eklenmemiştir.
+
+2. **Rezervasyon Silme ve Güncelleme:** Sistemde yapılan rezervasyonların silinmesi ve güncellenmesi işlevleri henüz uygulanmamıştır.
+
+3. **Stok Güncellemesi:** Rezervasyon yapıldığında veya silindiğinde ilgili odanın stok bilgisinin güncellenmesi henüz sağlanmamıştır.
+
+## Proje İsterleri
+
+1. **Veritabanı:** Veritabanı tabloları aşağıdaki gibi oluşturulmalıdır:
+    - `user`: admin ve acente çalışanı kullanıcı bilgilerini tutar.
+    - `otel`: otel bilgilerini tutar.
+    - `season`: otel sezon kayıtlarını tutar.
+    - `pension_type`: otel pansiyon tiplerini tutar.
+    - `room`: otel odalarını ve özelliklerini tutar.
+    - `reservation`: odaya yapılan rezervasyonları tutar.
+
+2. **Arayüz Tasarımı:** Java Swing kullanılmalıdır. Arayüz, kullanıcı dostu olmalı ve kendine özgü bir tasarıma sahip olmalıdır.
+
+3. **Kullanıcı Yönetimi:** Admin panelinden kullanıcıları eklemek, düzenlemek ve silmek mümkün olmalıdır. Kullanıcıların rolleri (admin, personel) belirlenmelidir.
+
+4. **Otel Yönetimi:** Otel ekleme ve listeleme işlevleri sağlanmalıdır. Otelin özellikleri, pansiyon tipleri ve dönemleri kaydedilmelidir.
+
+5. **Dönem Yönetimi:** Otelin dönemleri belirlenmeli ve fiyatlandırmalar bu dönemlere göre yapılmalıdır.
+
+6. **Oda Yönetimi:** Oda ekleme ve listeleme işlevleri sağlanmalıdır. Odaların fiyatlandırması ve özellikleri belirlenmelidir.
+
+7. **Fiyatlandırma:** Odaların fiyatlandırması otelin dönemine, pansiyon tipine ve misafir sayısına göre otomatik olarak hesaplanmalıdır.
+
+8. **Oda Arama ve Rezervasyon:** Acente çalışanları sisteme girdiği tarih aralığına, şehire veya otel adına göre oda arama yapabilmelidir. Rezervasyon işlemi tamamlandığında toplam fiyat otomatik olarak hesaplanmalı ve stok bilgisi güncellenmelidir.
+
+## Teknik Detaylar
+
+- **Veritabanı:** PostgreSQL 16 kullanıldı.
+- **Arayüz:** Java Swing kullanıldı.
+- **Java SDK Sürüm:** Java SDK 21 sürümü kullanıldı.
+
+Projenin eksiklikleri giderilerek sistemin tamamlanması ve Patika Turizm Acentesi'nin operasyonlarını dijitalleştirmesi hedeflenmektedir.
