@@ -27,7 +27,12 @@ public class HotelManager {
 
     public Array arrayConversion(ArrayList<String> hotelFeaturesList) { return this.hotelDao.arrayConversion(hotelFeaturesList);}
 
-    public int saveAndGetHotelId(Hotel hotel) { return this.hotelDao.saveAndGetHotelId(hotel); }
+    public int saveAndGetHotelId(Hotel hotel) {
+        if (hotel.getHotelId() != 0) {
+            Helper.showMessage("Hotel could not be saved");
+        }
+        return this.hotelDao.saveAndGetHotelId(hotel);
+    }
 
     public boolean save(Hotel hotel) {
         if (hotel.getHotelId() != 0) {
@@ -38,6 +43,7 @@ public class HotelManager {
 
     public Hotel getByID(int id) { return this.hotelDao.getByID(id); }
 
+    // Get hotel values for employee view table
     public ArrayList<Object[]> getForTable(int colSize, ArrayList<Hotel> hotelList) {
         ArrayList<Object[]> hotelRowList = new ArrayList<>();
         for (Hotel hotel : hotelList) {

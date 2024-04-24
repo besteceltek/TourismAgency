@@ -29,10 +29,12 @@ public class RoomDao {
         return this.selectByQuery("SELECT * FROM public.room ORDER BY room_id ASC");
     }
 
+    // Get Room list by hotel ID
     public ArrayList<Room> getByListHotelId(int hotelId) {
         return this.selectByQuery("SELECT * FROM public.room WHERE otel_id = " + hotelId);
     }
 
+    // Get Room by room ID
     public Room getByID(int id) {
         Room room = null;
         String query = "SELECT * FROM public.room WHERE room_id = ?";
@@ -49,6 +51,7 @@ public class RoomDao {
         return room;
     }
 
+    // Cast ArrayList to SQL Array
     public Array arrayConversion(ArrayList<String> roomFeaturesList) {
         try {
             return this.connection.createArrayOf("text", roomFeaturesList.toArray());
@@ -58,6 +61,7 @@ public class RoomDao {
         return null;
     }
 
+    // Save Room
     public boolean save(Room room) {
         String query = "INSERT INTO public.room " +
                 "(" +
@@ -83,6 +87,7 @@ public class RoomDao {
         return true;
     }
 
+    // Room filter queries
     public ArrayList<Room> searchForRooms(String filterStartDate, String filterEndDate, String filterCity, String filterHotel, String filterRegion, int bedCount) {
         String query = "SELECT * FROM public.room AS R INNER JOIN public.hotel AS H ON R.otel_id = H.hotel_id INNER JOIN public.season AS S ON R.season_id = S.season_id";
         ArrayList<String> where = new ArrayList<>();
@@ -130,7 +135,7 @@ public class RoomDao {
         return searchedRoomList;
     }
 
-    // Private Methods
+    // Private Methods that is used only in this class
 
     private ArrayList<Room> selectByQuery(String query) {
         ArrayList<Room> roomList = new ArrayList<>();

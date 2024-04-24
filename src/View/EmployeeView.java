@@ -165,10 +165,31 @@ public class EmployeeView extends Layout {
         });
 
         this.btn_room_res_add.addActionListener(e -> {
-            int selectRoomId = this.getTableSelectedRow(this.tbl_room, 0);
-            Reservation reservation = new Reservation();
-            reservation.setRoomId(selectRoomId);
-            ReservationView reservationView = new ReservationView(reservation);
+            if (this.fld_filter_checkin.getText().isEmpty() || this.fld_filter_checkout.getText().isEmpty()) {
+                Helper.showMessage("Please fill Check-in and Check-out date");
+            } else {
+                int selectRoomId = this.getTableSelectedRow(this.tbl_room, 0);
+                Reservation reservation = new Reservation();
+                reservation.setRoomId(selectRoomId);
+
+                // Check if the input date is valid and set the reservation start date
+                if (Helper.isValidDate(fld_filter_checkin.getText(), ("dd.MM.yyyy"))) {
+                    reservation.setReservationStartDate(LocalDate.parse(fld_filter_checkin.getText(), DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+                }
+
+                // Check if the input date is valid and set the reservation end date
+                if (Helper.isValidDate(fld_filter_checkout.getText(), ("dd.MM.yyyy"))) {
+                    reservation.setReservationEndDate(LocalDate.parse(fld_filter_checkout.getText(), DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+                }
+
+                ReservationView reservationView = new ReservationView(reservation);
+                reservationView.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        loadReservationTable();
+                    }
+                });
+            }
         });
 
         this.btn_search.addActionListener(e -> {

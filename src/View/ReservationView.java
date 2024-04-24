@@ -105,6 +105,10 @@ public class ReservationView extends Layout {
         this.fld_pension_type.setEnabled(false);
         this.fld_room_type.setText(room.getRoomType().toString());
         this.fld_room_type.setEnabled(false);
+        this.fld_checkin.setText(reservation.getReservationStartDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        this.fld_checkin.setEnabled(false);
+        this.fld_checkout.setText(reservation.getReservationEndDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        this.fld_checkout.setEnabled(false);
         this.txta_room_features.setText(room.getRoomFeaturesToString());
         this.txta_room_features.setEnabled(false);
         this.txta_hotel_features.setText(room.getHotel().getHotelFeaturesToString());

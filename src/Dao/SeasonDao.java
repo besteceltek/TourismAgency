@@ -20,10 +20,12 @@ public class SeasonDao {
         return this.selectByQuery("SELECT * FROM public.season ORDER BY season_id ASC");
     }
 
+    // Get Season list by hotel ID
     public ArrayList<Season> getByListHotelId(int hotelId) {
         return this.selectByQuery("SELECT * FROM public.season WHERE hotel_id = " + hotelId);
     }
 
+    // Get Season by season ID
     public Season getByID(int id) {
         Season season = null;
         String query = "SELECT * FROM public.season WHERE season_id = ?";
@@ -40,6 +42,7 @@ public class SeasonDao {
         return season;
     }
 
+    // Save Season
     public boolean save(Season season) {
         String query = "INSERT INTO public.season " +
                 "(" +
@@ -62,7 +65,7 @@ public class SeasonDao {
         return true;
     }
 
-    // Private Methods
+    // Private Methods that is used only in this class
 
     private Season match(ResultSet resultSet) throws SQLException {
         Season season = new Season();

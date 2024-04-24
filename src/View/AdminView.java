@@ -11,22 +11,28 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class AdminView extends Layout {
+    private JTable tbl_user;
+
+    private JScrollPane scrl_user;
+
     private JPanel container;
     private JPanel pnl_welcome;
     private JPanel pnl_filter;
     private JPanel pnl_user;
     private JPanel pnl_button;
+
     private JLabel lbl_welcome;
     private JLabel lbl_filter_user_role;
+
     private JButton btn_logout;
     private JButton btn_add;
     private JButton btn_update;
     private JButton btn_delete;
     private JButton btn_search;
-    private JComboBox<User.UserRole> cmb_filter_user_role;
-    private JScrollPane scrl_user;
-    private JTable tbl_user;
     private JButton btn_reset;
+
+    private JComboBox<User.UserRole> cmb_filter_user_role;
+
     private User user;
     private final UserManager userManager;
     private final DefaultTableModel mdl_user = new DefaultTableModel();
@@ -90,7 +96,7 @@ public class AdminView extends Layout {
             if (Helper.confirm("sure")) {
                 int selectUserId = this.getTableSelectedRow(this.tbl_user, 0);
                 if (this.userManager.delete(selectUserId)) {
-                    Helper.showMessage("done");
+                    Helper.showMessage("User deleted successfully");
                     loadUserTable(null);
                 }
             }

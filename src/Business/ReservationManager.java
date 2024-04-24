@@ -25,6 +25,7 @@ public class ReservationManager {
         return this.reservationDao.save(reservation);
     }
 
+    // Get reservation values for employee view table
     public ArrayList<Object[]> getForTable(int colSize, ArrayList<Reservation> reservationList) {
         ArrayList<Object[]> reservationRowList = new ArrayList<>();
         for (Reservation reservation : reservationList) {

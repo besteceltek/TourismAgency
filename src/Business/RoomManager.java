@@ -38,6 +38,7 @@ public class RoomManager {
         return this.roomDao.searchForRooms(filterStartDate, filterEndDate, filterCity, filterHotel, filterRegion, filterBed);
     }
 
+    // Get Room values for employee view table
     public ArrayList<Object[]> getForTable(int colSize, ArrayList<Room> roomList) {
         ArrayList<Object[]> roomRowList = new ArrayList<>();
         for (Room room : roomList) {

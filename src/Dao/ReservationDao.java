@@ -20,6 +20,7 @@ public class ReservationDao {
         return this.selectByQuery("SELECT * FROM public.reservation ORDER BY reservation_id ASC");
     }
 
+    // Save Reservation
     public boolean save(Reservation reservation) {
         String query = "INSERT INTO public.reservation " +
                 "(" +
@@ -50,7 +51,7 @@ public class ReservationDao {
         return true;
     }
 
-    // Private Methods
+    // Private Methods that is used only in this class
 
     private ArrayList<Reservation> selectByQuery(String query) {
         ArrayList<Reservation> reservationList = new ArrayList<>();

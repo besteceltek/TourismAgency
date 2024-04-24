@@ -29,6 +29,7 @@ public class HotelDao {
         return hotelList;
     }
 
+    // Get Hotel by hotel ID
     public Hotel getByID(int id) {
         Hotel hotel = null;
         String query = "SELECT * FROM public.hotel WHERE hotel_id = ?";
@@ -45,6 +46,7 @@ public class HotelDao {
         return hotel;
     }
 
+    // Cast ArrayList to SQL Array
     public Array arrayConversion(ArrayList<String> hotelFeaturesList) {
         try {
             return this.connection.createArrayOf("text", hotelFeaturesList.toArray());
@@ -54,6 +56,7 @@ public class HotelDao {
         return null;
     }
 
+    // Save Hotel
     public boolean save(Hotel hotel) {
         String query = "INSERT INTO public.hotel " +
                 "(" +
@@ -77,6 +80,7 @@ public class HotelDao {
         return true;
     }
 
+    // Save Hotel and return hotel ID
     public int saveAndGetHotelId(Hotel hotel) {
         String query = "INSERT INTO public.hotel " +
                 "(" +
@@ -107,7 +111,7 @@ public class HotelDao {
         return 0;
     }
 
-    // Private Methods
+    // Private Methods that is used only in this class
 
     private void setHotelValues(Hotel hotel, PreparedStatement preparedStatement) throws SQLException {
         preparedStatement.setString(1, hotel.getHotelName());

@@ -17,6 +17,7 @@ public class PensionDao {
         this.connection = Database.getInstance();
     }
 
+    // Get Pension by pension ID
     public Pension getByID(int id) {
         Pension pension = null;
         String query = "SELECT * FROM public.pension WHERE pension_id = ?";
@@ -37,10 +38,12 @@ public class PensionDao {
         return this.selectByQuery("SELECT * FROM public.pension ORDER BY pension_id ASC");
     }
 
+    // Get Pension list by hotel ID
     public ArrayList<Pension> getByListHotelId(int hotelId) {
         return this.selectByQuery("SELECT * FROM public.pension WHERE hotel_id = " + hotelId);
     }
 
+    // Save Pension
     public boolean save(Pension pension) {
         String query = "INSERT INTO public.pension " +
                 "(" +
@@ -59,7 +62,7 @@ public class PensionDao {
         return true;
     }
 
-    // Private Methods
+    // Private Methods that is used only in this class
 
     private Pension match(ResultSet resultSet) throws SQLException {
         Pension pension = new Pension();
