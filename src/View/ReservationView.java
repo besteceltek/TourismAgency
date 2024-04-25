@@ -67,6 +67,9 @@ public class ReservationView extends Layout {
 
         if (this.reservation.getRoomId() != 0) {
             setHotelValues(this.reservation);
+            if (this.reservation.getReservationId() != 0) {
+                setReservationValues(this.reservation);
+            }
         }
 
         // Save button action listener
@@ -112,7 +115,11 @@ public class ReservationView extends Layout {
     }
 
     public void setReservationValues(Reservation reservation) {
-
+        this.fld_name.setText(reservation.getReservationName());
+        this.fld_tc.setText(reservation.getReservationTc());
+        this.fld_email.setText(reservation.getReservationMail());
+        this.fld_phone.setText(reservation.getReservationPhone());
+        this.txta_res_note.setText(reservation.getReservationNote());
     }
 
     public void setHotelValues(Reservation reservation) {

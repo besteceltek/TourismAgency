@@ -74,6 +74,7 @@ public class EmployeeView extends Layout {
     private JPanel pnl_hotel_season;
     private JButton btn_delete;
     private JButton btn_update;
+    private JPanel pnl_res_button;
 
     private User user;
 
