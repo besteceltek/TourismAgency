@@ -25,6 +25,8 @@ public class RoomManager {
         return this.roomDao.getByListHotelId(hotelId);
     }
 
+    public boolean updateRoomStock(int roomStock, Room room) { return this.roomDao.updateRoomStock(roomStock, room); }
+
     public boolean save(Room room) {
         if (room.getRoomId() != 0) {
             Helper.showMessage("room kaydedilemedi");

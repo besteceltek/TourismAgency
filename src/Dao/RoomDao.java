@@ -87,6 +87,20 @@ public class RoomDao {
         return true;
     }
 
+    // Update room stock
+    public boolean updateRoomStock(int roomStock, Room room) {
+        String query = "UPDATE public.room SET room_stock = ? WHERE room_id = ?";
+        try {
+            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
+            preparedStatement.setInt(1, roomStock);
+            preparedStatement.setInt(2, room.getRoomId());
+            return preparedStatement.executeUpdate() != -1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
     // Room filter queries
     public ArrayList<Room> searchForRooms(String filterStartDate, String filterEndDate, String filterCity, String filterHotel, String filterRegion, int bedCount) {
         String query = "SELECT * FROM public.room AS R INNER JOIN public.hotel AS H ON R.otel_id = H.hotel_id INNER JOIN public.season AS S ON R.season_id = S.season_id";

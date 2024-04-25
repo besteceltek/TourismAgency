@@ -76,6 +76,8 @@ public class ReservationView extends Layout {
                     this.fld_checkin, this.fld_checkout, this.fld_tc})) {
                 Helper.showMessage("fill");
             } else {
+                boolean result;
+
                 // Set room values from fields
                 this.reservation.setReservationName(fld_name.getText());
                 this.reservation.setReservationTc(fld_tc.getText());
@@ -85,7 +87,19 @@ public class ReservationView extends Layout {
                 this.reservation.setReservationStartDate(LocalDate.parse(fld_checkin.getText(), DateTimeFormatter.ofPattern("dd.MM.yyyy")));
                 this.reservation.setReservationEndDate(LocalDate.parse(fld_checkout.getText(), DateTimeFormatter.ofPattern("dd.MM.yyyy")));
 
-                boolean result = this.reservationManager.save(this.reservation);
+                // Check if the save is successful
+                if (this.reservation.getReservationId() != 0) { // Update
+                    result = this.reservationManager.update(this.reservation);
+                } else { // Add
+                    result = this.reservationManager.save(this.reservation);
+
+                    // If reservation save successful, decrease room stock by one
+                    if (result) {
+                        int roomStock = this.roomManager.getByID(this.reservation.getRoomId()).getRoomStock();
+                        roomStock -= 1;
+                        this.roomManager.updateRoomStock(roomStock, this.roomManager.getByID(this.reservation.getRoomId()));
+                    }
+                }
 
                 if (result) {
                     Helper.showMessage("done");
@@ -95,6 +109,10 @@ public class ReservationView extends Layout {
                 }
             }
         });
+    }
+
+    public void setReservationValues(Reservation reservation) {
+
     }
 
     public void setHotelValues(Reservation reservation) {

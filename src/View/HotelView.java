@@ -135,6 +135,7 @@ public class HotelView extends Layout {
     }
 
     public void saveSeason(int hotelId) {
+        ArrayList<Season> seasonList = new ArrayList<>();
         for (String seasonName : hotelSeasonList) {
             Season season = new Season();
             if (seasonName.equals("Winter")) {
@@ -149,7 +150,9 @@ public class HotelView extends Layout {
                 season.setHotelId(hotelId);
             }
             this.seasonManager.save(season);
+            seasonList.add(season);
         }
+        this.hotel.setSeasonList(seasonList);
     }
 
     public void loadSeasonCheckBoxListener() {

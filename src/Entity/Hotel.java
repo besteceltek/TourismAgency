@@ -9,6 +9,7 @@ public class Hotel {
     private int hotelId, hotelStar;
     private String hotelName, hotelCity, hotelRegion, hotelAddress, hotelMail, hotelPhone;
     private Array hotelFeatures;
+    private ArrayList<Season> seasonList;
 
     public Hotel() {
     }
@@ -95,6 +96,14 @@ public class Hotel {
 
     public void setHotelFeatures(Array hotelFeatures) {
         this.hotelFeatures = hotelFeatures;
+    }
+
+    public ArrayList<Season> getSeasonList() {
+        return seasonList;
+    }
+
+    public void setSeasonList(ArrayList<Season> seasonList) {
+        this.seasonList = seasonList;
     }
 
     public String getHotelFeaturesToString() {

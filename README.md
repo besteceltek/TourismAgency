@@ -6,9 +6,7 @@ Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirme
 
 1. **Fiyat Yönetimi:** Odaların fiyatlandırması ve dönemsel değişkenlikleri yönetmek için gerekli olan fiyat yönetimi henüz eklenmemiştir.
 
-2. **Rezervasyon Silme ve Güncelleme:** Sistemde yapılan rezervasyonların silinmesi ve güncellenmesi işlevleri henüz uygulanmamıştır.
-
-3. **Stok Güncellemesi:** Rezervasyon yapıldığında veya silindiğinde ilgili odanın stok bilgisinin güncellenmesi henüz sağlanmamıştır.
+2. **Rezervasyon Güncelleme:** Sistemde yapılan rezervasyonların güncellenmesi henüz uygulanmamıştır.
 
 ## Proje İsterleri
 

@@ -2,10 +2,7 @@ package Business;
 
 import Core.Helper;
 import Dao.HotelDao;
-import Entity.Hotel;
-import Entity.Pension;
-import Entity.Room;
-import Entity.User;
+import Entity.*;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -61,5 +58,19 @@ public class HotelManager {
             hotelRowList.add(rowObject);
         }
         return hotelRowList;
+    }
+
+    // Get hotel season info for table
+    public ArrayList<Object[]> getForSeasonTable(int colSize, Hotel hotel) {
+        ArrayList<Object[]> hotelSeasonRowList = new ArrayList<>();
+        for (Season season : hotel.getSeasonList()) {
+            Object[] rowObject = new Object[colSize];
+            int i = 0;
+            rowObject[i++] = season.getSeasonName();
+            rowObject[i++] = season.getSeasonStartDate();
+            rowObject[i++] = season.getSeasonEndDate();
+            hotelSeasonRowList.add(rowObject);
+        }
+        return hotelSeasonRowList;
     }
 }

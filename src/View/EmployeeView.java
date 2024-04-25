@@ -13,6 +13,8 @@ import View.RoomView.RoomView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
@@ -63,6 +65,15 @@ public class EmployeeView extends Layout {
     private JPanel pnl_reserevation;
     private JTable tbl_reservations;
     private JScrollPane scrl_reservations;
+    private JTable tbl_hotel_features;
+    private JTable tbl_hotel_season;
+    private JScrollPane scrl_hotel_features;
+    private JPanel pnl_hotel_features;
+    private JPanel pnl_hotel_info;
+    private JScrollPane scrl_hotel_season;
+    private JPanel pnl_hotel_season;
+    private JButton btn_delete;
+    private JButton btn_update;
 
     private User user;
 
@@ -73,12 +84,13 @@ public class EmployeeView extends Layout {
     private final DefaultTableModel mdl_hotel = new DefaultTableModel();
     private final DefaultTableModel mdl_room = new DefaultTableModel();
     private final DefaultTableModel mdl_res = new DefaultTableModel();
+    private final DefaultTableModel mdl_hotelSeason = new DefaultTableModel();
 
     private Object[] colRoom;
 
     public EmployeeView(User user) {
         this.add(container);
-        this.initializeGui(1500, 1000);
+        this.initializeGui(1000, 800);
         this.user = user;
         this.hotelManager = new HotelManager();
         this.roomManager = new RoomManager();
@@ -91,6 +103,14 @@ public class EmployeeView extends Layout {
         loadRoomTable(null);
         loadComboCities(cmb_filter_city);
         loadReservationTable();
+
+        // !!!! UPDATE !!!!
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                loadHotelSeasonTable();
+            }
+        });
 
         for (Hotel hotel : this.hotelManager.findAll()) {
             this.cmb_filter_hotel.addItem(new ComboItem(hotel.getHotelId(), hotel.getHotelName()));
@@ -126,9 +146,17 @@ public class EmployeeView extends Layout {
         this.generateTable(this.mdl_res, this.tbl_reservations, colRes, reservationList);
     }
 
+    public void loadHotelSeasonTable() {
+        int selectHotelId = this.getTableSelectedRow(this.tbl_otel, 0);
+        Object[] colSeason = {"Season", "Season Start Date", "Season End Date"};
+        ArrayList<Object[]> seasonList = this.hotelManager.getForSeasonTable(colSeason.length, this.hotelManager.getByID(selectHotelId));
+        this.generateTable(this.mdl_hotelSeason, this.tbl_hotel_season, colSeason, seasonList);
+    }
+
     public void loadEmployeeComponents() {
         this.selectRow(this.tbl_otel);
         this.selectRow(this.tbl_room);
+        this.selectRow(this.tbl_reservations);
 
         this.btn_hotel_add.addActionListener(e -> {
             HotelView hotelView = new HotelView(new Hotel());
@@ -187,8 +215,40 @@ public class EmployeeView extends Layout {
                     @Override
                     public void windowClosed(WindowEvent e) {
                         loadReservationTable();
+                        loadRoomTable(null);
                     }
                 });
+            }
+        });
+
+        this.btn_update.addActionListener(e -> {
+            int selectReservationId = this.getTableSelectedRow(this.tbl_reservations, 0);
+            ReservationView reservationView = new ReservationView(this.reservationManager.getByID(selectReservationId));
+            reservationView.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosed(WindowEvent e) {
+                    loadReservationTable();
+                }
+            });
+        });
+
+        this.btn_delete.addActionListener(e -> {
+            int selectReservationId = this.getTableSelectedRow(this.tbl_reservations, 0);
+
+            // Get room info before deleting reservation
+            Room room = this.roomManager.getByID(this.reservationManager.getByID(selectReservationId).getRoomId());
+            int roomStock = room.getRoomStock();
+
+            if (Helper.confirm("sure")) {
+                if (this.reservationManager.delete(selectReservationId)) {
+                    // If reservation delete successful, increase room stock by one
+                    roomStock += 1;
+                    this.roomManager.updateRoomStock(roomStock, room);
+
+                    Helper.showMessage("Reservation deleted successfully");
+                    loadReservationTable();
+                    loadRoomTable(null);
+                }
             }
         });
 
