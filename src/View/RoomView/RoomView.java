@@ -34,10 +34,12 @@ public class RoomView extends Layout {
     private JLabel lbl_room_area;
     private JLabel lbl_room_stock;
     private JLabel lbl_room;
+    private JLabel lbl_room_season;
 
     private JComboBox cmb_room_pension;
     private JComboBox cmb_hotel;
     private JComboBox cmb_room_type;
+    private JComboBox cmb_room_season;
 
     private JCheckBox chk_tv;
     private JCheckBox chk_bar;
@@ -52,8 +54,6 @@ public class RoomView extends Layout {
     private JTextField fld_bed_count;
     private JTextField fld_room_area;
     private JTextField fld_room_stock;
-    private JLabel lbl_room_season;
-    private JComboBox cmb_room_season;
 
     private Room room;
     private RoomManager roomManager;
@@ -72,17 +72,11 @@ public class RoomView extends Layout {
         this.pensionManager = new PensionManager();
         this.seasonManager = new SeasonManager();
 
+        // Add features to room if the checkboxes are checked
         this.loadCheckBoxListener();
 
         // Set Combo Boxes
-        for (Hotel hotel : this.hotelManager.findAll()) {
-            this.cmb_hotel.addItem(new ComboItem(hotel.getHotelId(),hotel.getHotelName()));
-        }
-        this.cmb_hotel.setSelectedItem(null);
-        this.cmb_room_type.setModel(new DefaultComboBoxModel<>(Room.RoomType.values()));
-        this.cmb_room_type.setSelectedItem(null);
-        this.cmb_room_season.setModel(new DefaultComboBoxModel<>(new Object[]{"Summer", "Winter"}));
-        this.cmb_room_season.setSelectedItem(null);
+        this.loadComboBox();
 
         // Check if hotel is selected on Hotel tab
         if (this.room.getHotelId() != 0) {
@@ -101,7 +95,6 @@ public class RoomView extends Layout {
 
         // Save button action listener
         this.btn_save.addActionListener(e -> {
-
             // Check if any field is empty
             if (Helper.isFieldListEmpty(new JTextField[] {this.fld_bed_count, this.fld_room_area, this.fld_room_stock,
                     this.fld_room_price_adult, this.fld_room_price_child}) ||
@@ -131,13 +124,24 @@ public class RoomView extends Layout {
 
                 // Show message according to save result
                 if (result) {
-                    Helper.showMessage("done");
+                    Helper.showMessage("Room is saved successfully");
                     dispose();
                 } else {
                     Helper.showMessage("error");
                 }
             }
         });
+    }
+
+    public void loadComboBox() {
+        for (Hotel hotel : this.hotelManager.findAll()) {
+            this.cmb_hotel.addItem(new ComboItem(hotel.getHotelId(),hotel.getHotelName()));
+        }
+        this.cmb_hotel.setSelectedItem(null);
+        this.cmb_room_type.setModel(new DefaultComboBoxModel<>(Room.RoomType.values()));
+        this.cmb_room_type.setSelectedItem(null);
+        this.cmb_room_season.setModel(new DefaultComboBoxModel<>(new Object[]{"Summer", "Winter"}));
+        this.cmb_room_season.setSelectedItem(null);
     }
 
     public void loadSeasonComboBox() {

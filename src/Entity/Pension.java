@@ -24,6 +24,8 @@ public class Pension {
         this.pensionType = pensionType;
     }
 
+    // Getters & Setters
+
     public int getPensionId() {
         return pensionId;
     }
@@ -48,6 +50,7 @@ public class Pension {
         this.pensionType = pensionType;
     }
 
+    // Combo Item for pension type
     public ComboItem getComboItem() {
         return new ComboItem(this.getPensionId(), this.getPensionType());
     }

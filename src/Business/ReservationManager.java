@@ -61,6 +61,7 @@ public class ReservationManager {
             rowObject[i++] = reservation.getReservationNote();
             rowObject[i++] = reservation.getReservationStartDate();
             rowObject[i++] = reservation.getReservationEndDate();
+            rowObject[i++] = reservation.getTotalPrice();
             reservationRowList.add(rowObject);
         }
         return reservationRowList;

@@ -55,7 +55,7 @@ public class Helper {
                 yield "Bad request";
             }
             default -> {
-                title = "Error";
+                title = "Info";
                 yield str;
             }
         };

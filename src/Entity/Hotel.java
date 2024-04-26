@@ -26,6 +26,8 @@ public class Hotel {
         this.hotelFeatures = hotelFeatures;
     }
 
+    // Getters & Setters
+
     public int getHotelId() {
         return hotelId;
     }
@@ -106,6 +108,7 @@ public class Hotel {
         this.seasonList = seasonList;
     }
 
+    // ToString method for hotel features list
     public String getHotelFeaturesToString() {
         String str = "";
         ResultSet rs = null;

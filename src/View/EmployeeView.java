@@ -13,8 +13,6 @@ import View.RoomView.RoomView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
@@ -30,14 +28,28 @@ public class EmployeeView extends Layout {
     private JPanel pnl_hotel_button;
     private JPanel pnl_room_button;
     private JPanel pnl_filter_room;
+    private JPanel pnl_reserevation;
+    private JPanel pnl_hotel_features;
+    private JPanel pnl_hotel_info;
+    private JPanel pnl_hotel_season;
+    private JPanel pnl_res_button;
+    private JPanel pnl_room_feature;
 
     private JTabbedPane tab_menu;
 
     private JScrollPane scrl_otel;
     private JScrollPane scrl_room;
+    private JScrollPane scrl_reservations;
+    private JScrollPane scrl_hotel_features;
+    private JScrollPane scrl_hotel_season;
+    private JScrollPane scrl_room_feature;
 
     private JTable tbl_otel;
     private JTable tbl_room;
+    private JTable tbl_reservations;
+    private JTable tbl_hotel_features;
+    private JTable tbl_hotel_season;
+    private JTable tbl_room_feature;
 
     private JLabel lbl_welcome;
     private JLabel lbl_filter_hotel;
@@ -53,6 +65,9 @@ public class EmployeeView extends Layout {
     private JButton btn_room_add;
     private JButton btn_room_res_add;
     private JButton btn_search;
+    private JButton btn_reset;
+    private JButton btn_delete;
+    private JButton btn_update;
 
     private JComboBox cmb_filter_hotel;
     private JComboBox cmb_filter_city;
@@ -61,20 +76,6 @@ public class EmployeeView extends Layout {
     private JTextField fld_filter_checkin;
     private JTextField fld_filter_checkout;
     private JTextField fld_filter_bed;
-    private JButton btn_reset;
-    private JPanel pnl_reserevation;
-    private JTable tbl_reservations;
-    private JScrollPane scrl_reservations;
-    private JTable tbl_hotel_features;
-    private JTable tbl_hotel_season;
-    private JScrollPane scrl_hotel_features;
-    private JPanel pnl_hotel_features;
-    private JPanel pnl_hotel_info;
-    private JScrollPane scrl_hotel_season;
-    private JPanel pnl_hotel_season;
-    private JButton btn_delete;
-    private JButton btn_update;
-    private JPanel pnl_res_button;
 
     private User user;
 
@@ -91,7 +92,7 @@ public class EmployeeView extends Layout {
 
     public EmployeeView(User user) {
         this.add(container);
-        this.initializeGui(1000, 800);
+        this.initializeGui(1000, 500);
         this.user = user;
         this.hotelManager = new HotelManager();
         this.roomManager = new RoomManager();
@@ -104,14 +105,6 @@ public class EmployeeView extends Layout {
         loadRoomTable(null);
         loadComboCities(cmb_filter_city);
         loadReservationTable();
-
-        // !!!! UPDATE !!!!
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                loadHotelSeasonTable();
-            }
-        });
 
         for (Hotel hotel : this.hotelManager.findAll()) {
             this.cmb_filter_hotel.addItem(new ComboItem(hotel.getHotelId(), hotel.getHotelName()));
@@ -142,17 +135,24 @@ public class EmployeeView extends Layout {
     }
 
     public void loadReservationTable() {
-        Object[] colRes = {"Reservation ID", "Room Id", "Name", "Mail", "Phone", "TC/Passport No", "Reservation Note", "Start Date", "End Date"};
+        Object[] colRes = {"Reservation ID", "Room Id", "Name", "Mail", "Phone", "TC/Passport No", "Reservation Note", "Start Date", "End Date", "Total Price"};
         ArrayList<Object[]> reservationList = this.reservationManager.getForTable(colRes.length, this.reservationManager.findAll());
         this.generateTable(this.mdl_res, this.tbl_reservations, colRes, reservationList);
     }
 
     public void loadHotelSeasonTable() {
         int selectHotelId = this.getTableSelectedRow(this.tbl_otel, 0);
-        Object[] colSeason = {"Season", "Season Start Date", "Season End Date"};
-        ArrayList<Object[]> seasonList = this.hotelManager.getForSeasonTable(colSeason.length, this.hotelManager.getByID(selectHotelId));
-        this.generateTable(this.mdl_hotelSeason, this.tbl_hotel_season, colSeason, seasonList);
+        Object[] colHotelSeason = {"Season", "Season Start Date", "Season End Date"};
+        ArrayList<Object[]> seasonList = this.hotelManager.getForSeasonTable(colHotelSeason.length, this.hotelManager.getByID(selectHotelId));
+        this.generateTable(this.mdl_hotelSeason, this.tbl_hotel_season, colHotelSeason, seasonList);
     }
+
+    /*
+    public void loadHotelFeaturesTable() {
+        int selectHotelId = this.getTableSelectedRow(this.tbl_otel, 0);
+        Object[] colHotelFeature = {"Pension Types", "Hotel Features"};
+    }
+    */
 
     public void loadEmployeeComponents() {
         this.selectRow(this.tbl_otel);

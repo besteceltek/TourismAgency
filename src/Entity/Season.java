@@ -6,12 +6,11 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 public class Season {
-    // 01/01/2021 - 31/05/2021
-    //01/06/2021 - 01/12/2021
-
     private int seasonId, hotelId;
     private String seasonName;
     private LocalDate seasonStartDate, seasonEndDate;
+
+    // Getters & Setters
 
     public int getSeasonId() {
         return seasonId;
@@ -53,6 +52,7 @@ public class Season {
         this.seasonEndDate = seasonEndDate;
     }
 
+    // Combo Item for season name
     public ComboItem getComboItem() { return new ComboItem(this.getSeasonId(), this.getSeasonName()); }
 
     }

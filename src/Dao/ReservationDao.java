@@ -49,9 +49,10 @@ public class ReservationDao {
                 "room_id, " +
                 "reservation_start_date, " +
                 "reservation_end_date, " +
-                "reservation_tc" +
+                "reservation_tc, " +
+                "total_price" +
                 ")" +
-                " VALUES (?,?,?,?,?,?,?,?)";
+                " VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
             setReservationValues(reservation, preparedStatement);
@@ -72,12 +73,13 @@ public class ReservationDao {
                 "room_id = ?, " +
                 "reservation_start_date = ?, " +
                 "reservation_end_date = ?, " +
-                "reservation_tc = ?" +
+                "reservation_tc = ?, " +
+                "total_price = ?" +
                 "WHERE reservation_id = ?";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
             setReservationValues(reservation, preparedStatement);
-            preparedStatement.setInt(9, reservation.getReservationId());
+            preparedStatement.setInt(10, reservation.getReservationId());
             return preparedStatement.executeUpdate() != -1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,6 +111,7 @@ public class ReservationDao {
         preparedStatement.setDate(6, Date.valueOf(reservation.getReservationStartDate()));
         preparedStatement.setDate(7, Date.valueOf(reservation.getReservationEndDate()));
         preparedStatement.setString(8, reservation.getReservationTc());
+        preparedStatement.setString(9, reservation.getTotalPrice());
     }
 
     private ArrayList<Reservation> selectByQuery(String query) {
@@ -135,6 +138,7 @@ public class ReservationDao {
         reservation.setReservationNote(resultSet.getString("reservation_note"));
         reservation.setReservationStartDate(LocalDate.parse(resultSet.getString("reservation_start_date")));
         reservation.setReservationEndDate(LocalDate.parse(resultSet.getString("reservation_end_date")));
+        reservation.setTotalPrice(resultSet.getString("total_price"));
         return reservation;
     }
 }

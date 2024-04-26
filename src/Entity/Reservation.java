@@ -4,8 +4,10 @@ import java.time.LocalDate;
 
 public class Reservation {
     private int reservationId, roomId;
-    private String reservationName, reservationMail, reservationPhone, reservationNote, reservationTc;
+    private String reservationName, reservationMail, reservationPhone, reservationNote, reservationTc, totalPrice;
     private LocalDate reservationStartDate, reservationEndDate;
+
+    // Getters & Setters
 
     public int getReservationId() {
         return reservationId;
@@ -77,5 +79,13 @@ public class Reservation {
 
     public void setReservationNote(String reservationNote) {
         this.reservationNote = reservationNote;
+    }
+
+    public String getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

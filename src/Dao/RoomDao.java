@@ -107,6 +107,8 @@ public class RoomDao {
         ArrayList<String> where = new ArrayList<>();
         String whereStr = null;
 
+        where.add("R.room_stock > 0");
+
         if (filterCity != null && !filterCity.isEmpty()) {
             where.add("H.hotel_city = '" + filterCity + "'");
         }

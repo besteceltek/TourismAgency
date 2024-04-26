@@ -15,7 +15,6 @@ public class Room {
     private Hotel hotel;
     private Pension pension;
     private Season season;
-    private RoomManager roomManager = new RoomManager();
 
     public enum RoomType {
         Single,
@@ -23,6 +22,8 @@ public class Room {
         JuniorSuite,
         Suite
     }
+
+    // Getters & Setters
 
     public int getRoomId() {
         return roomId;
@@ -136,6 +137,7 @@ public class Room {
         this.season = season;
     }
 
+    // To String method for room features list
     public String getRoomFeaturesToString() {
         String str = "";
         ResultSet rs = null;

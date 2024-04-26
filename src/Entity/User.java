@@ -69,15 +69,4 @@ public class User {
     public void setUserLastName(String userLastName) {
         this.userLastName = userLastName;
     }
-
-    public String toString() {
-        return "User{" +
-                "id=" + this.userID +
-                ", firstname='" + this.userFirstName + '\'' +
-                ", lastname='" + this.userLastName + '\'' +
-                ", username='" + this.userName + '\'' +
-                ", password='" + this.userPassword + '\'' +
-                ", role='" + this.userRole + '\'' +
-                '}';
-    }
 }
