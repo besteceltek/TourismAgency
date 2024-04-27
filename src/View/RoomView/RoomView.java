@@ -36,10 +36,10 @@ public class RoomView extends Layout {
     private JLabel lbl_room;
     private JLabel lbl_room_season;
 
-    private JComboBox cmb_room_pension;
-    private JComboBox cmb_hotel;
-    private JComboBox cmb_room_type;
-    private JComboBox cmb_room_season;
+    private JComboBox<ComboItem> cmb_room_pension;
+    private JComboBox<ComboItem> cmb_hotel;
+    private JComboBox<Room.RoomType> cmb_room_type;
+    private JComboBox<Object> cmb_room_season;
 
     private JCheckBox chk_tv;
     private JCheckBox chk_bar;
@@ -55,11 +55,11 @@ public class RoomView extends Layout {
     private JTextField fld_room_area;
     private JTextField fld_room_stock;
 
-    private Room room;
-    private RoomManager roomManager;
-    private HotelManager hotelManager;
-    private PensionManager pensionManager;
-    private SeasonManager seasonManager;
+    private final Room room;
+    private final RoomManager roomManager;
+    private final HotelManager hotelManager;
+    private final PensionManager pensionManager;
+    private final SeasonManager seasonManager;
 
     private final ArrayList<String> roomFeaturesList = new ArrayList<>();
 

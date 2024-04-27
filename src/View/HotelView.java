@@ -1,5 +1,6 @@
 package View;
 
+import Business.HotelFeaturesManager;
 import Business.HotelManager;
 import Business.PensionManager;
 import Business.SeasonManager;
@@ -7,6 +8,7 @@ import Core.Cities;
 import Core.ComboItem;
 import Core.Helper;
 import Entity.Hotel;
+import Entity.HotelFeatures;
 import Entity.Pension;
 import Entity.Season;
 
@@ -72,6 +74,7 @@ public class HotelView extends Layout {
     private HotelManager hotelManager;
     private PensionManager pensionManager;
     private SeasonManager seasonManager;
+    private HotelFeaturesManager hotelFeaturesManager;
 
     private final ArrayList<String> hotelFeaturesList = new ArrayList<>();
     private final ArrayList<String> hotelPensionList = new ArrayList<>();
@@ -84,6 +87,7 @@ public class HotelView extends Layout {
         this.hotelManager = new HotelManager();
         this.pensionManager = new PensionManager();
         this.seasonManager = new SeasonManager();
+        this.hotelFeaturesManager = new HotelFeaturesManager();
 
         this.loadFeaturesCheckBoxListener();
         this.loadPensionCheckBoxListener();
@@ -119,6 +123,9 @@ public class HotelView extends Layout {
                 // Add season
                 saveSeason(hotelId);
 
+                // Add hotel features
+                saveFeature(hotelId);
+
                 Helper.showMessage("done");
                 dispose();
             }
@@ -152,7 +159,15 @@ public class HotelView extends Layout {
             this.seasonManager.save(season);
             seasonList.add(season);
         }
-        this.hotel.setSeasonList(seasonList);
+    }
+
+    public void saveFeature(int hotelId) {
+        for (String hotelFeature : hotelFeaturesList) {
+            HotelFeatures hotelFeatures = new HotelFeatures();
+            hotelFeatures.setHotelId(hotelId);
+            hotelFeatures.setFeatureName(hotelFeature);
+            this.hotelFeaturesManager.save(hotelFeatures);
+        }
     }
 
     public void loadSeasonCheckBoxListener() {

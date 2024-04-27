@@ -1,7 +1,9 @@
 package Business;
 
+import Core.ComboItem;
 import Core.Helper;
 import Dao.HotelDao;
+import Dao.PensionDao;
 import Entity.*;
 
 import java.sql.Array;
@@ -9,13 +11,15 @@ import java.util.ArrayList;
 
 public class HotelManager {
     private HotelDao hotelDao;
-    private final RoomManager roomManager;
+    private final SeasonManager seasonManager;
     private final PensionManager pensionManager;
+    private final HotelFeaturesManager hotelFeaturesManager;
 
     public HotelManager() {
         this.hotelDao = new HotelDao();
-        this.roomManager = new RoomManager();
-        this.pensionManager =new PensionManager();
+        this.seasonManager = new SeasonManager();
+        this.hotelFeaturesManager = new HotelFeaturesManager();
+        this.pensionManager = new PensionManager();
     }
 
     public ArrayList<Hotel> findAll() {
@@ -61,9 +65,9 @@ public class HotelManager {
     }
 
     // Get hotel season info for table
-    public ArrayList<Object[]> getForSeasonTable(int colSize, Hotel hotel) {
+    public ArrayList<Object[]> getForSeasonTable(int colSize, int selectedHotelId) {
         ArrayList<Object[]> hotelSeasonRowList = new ArrayList<>();
-        for (Season season : hotel.getSeasonList()) {
+        for (Season season : this.seasonManager.getByListHotelId(selectedHotelId)) {
             Object[] rowObject = new Object[colSize];
             int i = 0;
             rowObject[i++] = season.getSeasonName();
@@ -72,5 +76,29 @@ public class HotelManager {
             hotelSeasonRowList.add(rowObject);
         }
         return hotelSeasonRowList;
+    }
+
+    // Get hotel feature info for table
+    public ArrayList<Object[]> getForFeatureTable(int colSize, int selectedHotelId) {
+        ArrayList<Object[]> hotelFeatureRowList = new ArrayList<>();
+        for (HotelFeatures hotelFeatures : this.hotelFeaturesManager.getByListHotelId(selectedHotelId)) {
+            Object[] rowObject = new Object[colSize];
+            int i = 0;
+            rowObject[i++] = hotelFeatures.getFeatureName();
+            hotelFeatureRowList.add(rowObject);
+        }
+        return hotelFeatureRowList;
+    }
+
+    // Get hotel pension info for table
+    public ArrayList<Object[]> getForPensionTable(int colSize, int selectedHotelId) {
+        ArrayList<Object[]> hotelPensionRowList = new ArrayList<>();
+        for (Pension pension : this.pensionManager.getByListHotelId(selectedHotelId)) {
+            Object[] rowObject = new Object[colSize];
+            int i = 0;
+            rowObject[i++] = pension.getPensionType();
+            hotelPensionRowList.add(rowObject);
+        }
+        return hotelPensionRowList;
     }
 }

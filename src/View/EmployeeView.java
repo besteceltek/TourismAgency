@@ -13,6 +13,9 @@ import View.RoomView.RoomView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDate;
@@ -40,8 +43,6 @@ public class EmployeeView extends Layout {
     private JScrollPane scrl_otel;
     private JScrollPane scrl_room;
     private JScrollPane scrl_reservations;
-    private JScrollPane scrl_hotel_features;
-    private JScrollPane scrl_hotel_season;
     private JScrollPane scrl_room_feature;
 
     private JTable tbl_otel;
@@ -50,6 +51,7 @@ public class EmployeeView extends Layout {
     private JTable tbl_hotel_features;
     private JTable tbl_hotel_season;
     private JTable tbl_room_feature;
+    private JTable tbl_hotel_pension;
 
     private JLabel lbl_welcome;
     private JLabel lbl_filter_hotel;
@@ -69,36 +71,36 @@ public class EmployeeView extends Layout {
     private JButton btn_delete;
     private JButton btn_update;
 
-    private JComboBox cmb_filter_hotel;
-    private JComboBox cmb_filter_city;
-    private JComboBox cmb_filter_region;
+    private JComboBox<ComboItem> cmb_filter_hotel;
+    private JComboBox<ComboItem> cmb_filter_city;
+    private JComboBox<ComboItem> cmb_filter_region;
 
     private JTextField fld_filter_checkin;
     private JTextField fld_filter_checkout;
     private JTextField fld_filter_bed;
+    private JScrollPane scrl_hotel_feature;
 
-    private User user;
-
-    private HotelManager hotelManager;
-    private RoomManager roomManager;
-    private ReservationManager reservationManager;
+    private final HotelManager hotelManager;
+    private final RoomManager roomManager;
+    private final ReservationManager reservationManager;
 
     private final DefaultTableModel mdl_hotel = new DefaultTableModel();
     private final DefaultTableModel mdl_room = new DefaultTableModel();
     private final DefaultTableModel mdl_res = new DefaultTableModel();
     private final DefaultTableModel mdl_hotelSeason = new DefaultTableModel();
+    private final DefaultTableModel mdl_hotelFeature = new DefaultTableModel();
+    private final DefaultTableModel mdl_hotelPension = new DefaultTableModel();
 
     private Object[] colRoom;
 
     public EmployeeView(User user) {
         this.add(container);
         this.initializeGui(1000, 500);
-        this.user = user;
         this.hotelManager = new HotelManager();
         this.roomManager = new RoomManager();
         this.reservationManager = new ReservationManager();
 
-        this.lbl_welcome.setText("Welcome " + this.user.getUserName());
+        this.lbl_welcome.setText("Welcome " + user.getUserName());
 
         loadEmployeeComponents();
         loadHotelTable();
@@ -143,19 +145,39 @@ public class EmployeeView extends Layout {
     public void loadHotelSeasonTable() {
         int selectHotelId = this.getTableSelectedRow(this.tbl_otel, 0);
         Object[] colHotelSeason = {"Season", "Season Start Date", "Season End Date"};
-        ArrayList<Object[]> seasonList = this.hotelManager.getForSeasonTable(colHotelSeason.length, this.hotelManager.getByID(selectHotelId));
+        ArrayList<Object[]> seasonList = this.hotelManager.getForSeasonTable(colHotelSeason.length, selectHotelId);
         this.generateTable(this.mdl_hotelSeason, this.tbl_hotel_season, colHotelSeason, seasonList);
     }
 
-    /*
     public void loadHotelFeaturesTable() {
         int selectHotelId = this.getTableSelectedRow(this.tbl_otel, 0);
-        Object[] colHotelFeature = {"Pension Types", "Hotel Features"};
+        Object[] colHotelFeature = {"Hotel Features"};
+        ArrayList<Object[]> hotelFeatureList = this.hotelManager.getForFeatureTable(colHotelFeature.length, selectHotelId);
+        this.generateTable(this.mdl_hotelFeature, this.tbl_hotel_features, colHotelFeature, hotelFeatureList);
     }
-    */
+
+    public void loadHotelPensionTable() {
+        int selectHotelId = this.getTableSelectedRow(this.tbl_otel, 0);
+        Object[] colHotelPension = {"Hotel Pensions"};
+        ArrayList<Object[]> hotelPensionList = this.hotelManager.getForPensionTable(colHotelPension.length, selectHotelId);
+        this.generateTable(this.mdl_hotelPension, this.tbl_hotel_pension, colHotelPension, hotelPensionList);
+    }
+
+    public void selectHotelRow(JTable table) {
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int selected_row = table.rowAtPoint(e.getPoint());
+                table.setRowSelectionInterval(selected_row, selected_row);
+                loadHotelSeasonTable();
+                loadHotelFeaturesTable();
+                loadHotelPensionTable();
+            }
+        });
+    }
 
     public void loadEmployeeComponents() {
-        this.selectRow(this.tbl_otel);
+        this.selectHotelRow(this.tbl_otel);
         this.selectRow(this.tbl_room);
         this.selectRow(this.tbl_reservations);
 

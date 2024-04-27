@@ -47,9 +47,9 @@ public class HotelDao {
     }
 
     // Cast ArrayList to SQL Array
-    public Array arrayConversion(ArrayList<String> hotelFeaturesList) {
+    public Array arrayConversion(ArrayList<String> list) {
         try {
-            return this.connection.createArrayOf("text", hotelFeaturesList.toArray());
+            return this.connection.createArrayOf("text", list.toArray());
         } catch (SQLException e) {
             e.printStackTrace();
         }

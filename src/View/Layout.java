@@ -6,6 +6,7 @@ import Core.Helper;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.Collator;
@@ -40,6 +41,18 @@ public class Layout extends JFrame {
 
         for(Object[] row : rows) {
             model.addRow(row);
+        }
+    }
+
+    public static void setJTableColumnsWidth(JTable table, int tablePreferredWidth, double... percentages) {
+        double total = 0;
+        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+            total += percentages[i];
+        }
+
+        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+            TableColumn column = table.getColumnModel().getColumn(i);
+            column.setPreferredWidth((int) (tablePreferredWidth * (percentages[i] / total)));
         }
     }
 

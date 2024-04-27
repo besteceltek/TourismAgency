@@ -5,31 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea7afeb-99b4-4c58-9461-4c2958a33a34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TourismAgency/View/EmployeeView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Business/ReservationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/ReservationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Helper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/ReservationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/ReservationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/RoomDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/RoomDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/HotelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dao/HotelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/HotelDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Hotel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Pension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Pension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Season.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Season.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ReservationView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReservationView.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ReservationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/ReservationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/RoomView/RoomView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/RoomView/RoomView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/HotelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HotelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Layout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +94,7 @@
       <workItem from="1713976657825" duration="68000" />
       <workItem from="1713977226500" duration="131000" />
       <workItem from="1713977480868" duration="17764000" />
-      <workItem from="1714067548710" duration="11250000" />
+      <workItem from="1714067548710" duration="19211000" />
     </task>
     <servers />
   </component>
