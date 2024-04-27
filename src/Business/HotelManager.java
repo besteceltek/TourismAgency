@@ -58,7 +58,6 @@ public class HotelManager {
             rowObject[i++] = hotel.getHotelMail();
             rowObject[i++] = hotel.getHotelPhone();
             rowObject[i++] = hotel.getHotelStar();
-            rowObject[i++] = hotel.getHotelFeatures();
             hotelRowList.add(rowObject);
         }
         return hotelRowList;

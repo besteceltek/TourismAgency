@@ -6,12 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9ea7afeb-99b4-4c58-9461-4c2958a33a34" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business/HotelFeaturesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/HotelFeaturesManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Business/HotelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business/HotelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dao/HotelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dao/HotelDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EmployeeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/HotelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HotelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Layout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +92,7 @@
       <workItem from="1713976657825" duration="68000" />
       <workItem from="1713977226500" duration="131000" />
       <workItem from="1713977480868" duration="17764000" />
-      <workItem from="1714067548710" duration="19211000" />
+      <workItem from="1714067548710" duration="24801000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@ import Entity.HotelFeatures;
 import java.util.ArrayList;
 
 public class HotelFeaturesManager {
-    private HotelFeaturesDao hotelFeaturesDao;
+    private final HotelFeaturesDao hotelFeaturesDao;
 
     public HotelFeaturesManager() {
         this.hotelFeaturesDao = new HotelFeaturesDao();

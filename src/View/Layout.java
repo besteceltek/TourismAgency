@@ -7,6 +7,7 @@ import Core.Helper;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.Collator;
@@ -103,5 +104,24 @@ public class Layout extends JFrame {
             }
         }
         regionCombo.setSelectedItem(null);
+    }
+
+    public void printFrameSize(JTable table) {
+        Dimension size = table.getSize();
+        System.out.println("Dimension is: " + size);
+    }
+
+    public void resizeTable(JTable table, int tableWidth, int tableHeight, double... percentages) {
+        table.setPreferredSize(new Dimension(tableWidth, tableHeight));
+
+        double total = 0;
+        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+            total += percentages[i];
+        }
+
+        for (int i = 0; i < table.getColumnModel().getColumnCount(); i++) {
+            TableColumn column = table.getColumnModel().getColumn(i);
+            column.setMaxWidth((int) (tableWidth * (percentages[i] / total)));
+        }
     }
 }

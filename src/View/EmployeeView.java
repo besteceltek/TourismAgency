@@ -13,7 +13,6 @@ import View.RoomView.RoomView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -36,14 +35,12 @@ public class EmployeeView extends Layout {
     private JPanel pnl_hotel_info;
     private JPanel pnl_hotel_season;
     private JPanel pnl_res_button;
-    private JPanel pnl_room_feature;
 
     private JTabbedPane tab_menu;
 
     private JScrollPane scrl_otel;
     private JScrollPane scrl_room;
     private JScrollPane scrl_reservations;
-    private JScrollPane scrl_room_feature;
 
     private JTable tbl_otel;
     private JTable tbl_room;
@@ -79,6 +76,7 @@ public class EmployeeView extends Layout {
     private JTextField fld_filter_checkout;
     private JTextField fld_filter_bed;
     private JScrollPane scrl_hotel_feature;
+    private JScrollPane scrl_hotel_pension;
 
     private final HotelManager hotelManager;
     private final RoomManager roomManager;
@@ -90,6 +88,7 @@ public class EmployeeView extends Layout {
     private final DefaultTableModel mdl_hotelSeason = new DefaultTableModel();
     private final DefaultTableModel mdl_hotelFeature = new DefaultTableModel();
     private final DefaultTableModel mdl_hotelPension = new DefaultTableModel();
+    private final DefaultTableModel mdl_roomFeature = new DefaultTableModel();
 
     private Object[] colRoom;
 
@@ -122,7 +121,7 @@ public class EmployeeView extends Layout {
 
     public void loadHotelTable() {
         Object[] colHotel = {"Hotel ID", "Hotel Name", "Hotel City", "Hotel Region", "Hotel Address",
-                "Hotel Mail", "Hotel Phone", "Hotel Star", "Hotel Features"};
+                "Hotel Mail", "Hotel Phone", "Hotel Star"};
         ArrayList<Object[]> hotelList = this.hotelManager.getForTable(colHotel.length, this.hotelManager.findAll());
         this.generateTable(this.mdl_hotel, this.tbl_otel, colHotel, hotelList);
     }
@@ -171,7 +170,9 @@ public class EmployeeView extends Layout {
                 table.setRowSelectionInterval(selected_row, selected_row);
                 loadHotelSeasonTable();
                 loadHotelFeaturesTable();
+                resizeTable(tbl_hotel_features, 150, 145, 100);
                 loadHotelPensionTable();
+                resizeTable(tbl_hotel_pension, 200, 145, 100);
             }
         });
     }
