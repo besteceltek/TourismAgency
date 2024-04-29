@@ -27,6 +27,28 @@ Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirme
 
 8. **Oda Arama ve Rezervasyon:** Acente çalışanları sisteme girdiği tarih aralığına, şehire veya otel adına göre oda arama yapabilmelidir. Rezervasyon işlemi tamamlandığında toplam fiyat otomatik olarak hesaplanmalı ve stok bilgisi güncellenmelidir.
 
+## Projenin Yapımı
+
+Proje ile ilgili detaylı bilgiler için aşağıdaki videoyu izleyebilirsiniz.
+
+
+
+
+
+
+
+
+Projeye başlarken ilk önce giriş sayfasını ve admin kullanıcının göreceği arayüzü ve backendi hazırladım.
+![Giriş Sayfası](https://github.com/besteceltek/TourismAgency/blob/main/images/Screenshot%202024-04-29%20at%2020.56.36.png)
+![Admin Arayüzü](https://github.com/besteceltek/TourismAgency/blob/main/images/Screenshot%202024-04-29%20at%2020.56.49.png)
+![Kullanıcı Ekleme Arayüzü](https://github.com/besteceltek/TourismAgency/blob/main/images/Screenshot%202024-04-29%20at%2020.56.57.png)
+![]()
+![]()
+![]()
+![]()
+![]()
+![]()
+
 ## Teknik Detaylar
 
 - **Veritabanı:** PostgreSQL 16 kullanıldı.
