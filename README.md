@@ -39,7 +39,7 @@ Proje ile ilgili detaylı bilgiler için aşağıdaki videoyu izleyebilirsiniz.
 
 
 Projeye başlarken ilk önce giriş sayfasını ve admin kullanıcının göreceği arayüzü ve backendi hazırladım.
-![Giriş Sayfası](/images/Screenshot%202024-04-29%20at%2020.56.36.png)
+<img width="30px" src="/images/Screenshot%202024-04-29%20at%2020.56.36.png" alt="Giriş Sayfası" />
 ![Admin Arayüzü](/images/Screenshot%202024-04-29%20at%2020.56.49.png)
 ![Kullanıcı Ekleme Arayüzü](/images/Screenshot%202024-04-29%20at%2020.56.57.png)
 ![]()
