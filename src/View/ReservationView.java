@@ -56,10 +56,10 @@ public class ReservationView extends Layout {
     private JButton btn_save;
     private JButton btn_calculate;
 
-    private Reservation reservation;
+    private final Reservation reservation;
 
-    private RoomManager roomManager;
-    private ReservationManager reservationManager;
+    private final RoomManager roomManager;
+    private final ReservationManager reservationManager;
 
     public ReservationView(Reservation reservation) {
         this.add(container);
@@ -194,6 +194,7 @@ public class ReservationView extends Layout {
         this.fld_email.setText(reservation.getReservationMail());
         this.fld_phone.setText(reservation.getReservationPhone());
         this.txta_res_note.setText(reservation.getReservationNote());
+        this.fld_cost.setText(reservation.getTotalPrice());
     }
 
     public void setHotelValues(Reservation reservation) {

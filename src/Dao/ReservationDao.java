@@ -74,7 +74,7 @@ public class ReservationDao {
                 "reservation_start_date = ?, " +
                 "reservation_end_date = ?, " +
                 "reservation_tc = ?, " +
-                "total_price = ?" +
+                "total_price = ? " +
                 "WHERE reservation_id = ?";
         try {
             PreparedStatement preparedStatement = this.connection.prepareStatement(query);
