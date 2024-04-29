@@ -2,21 +2,16 @@
 
 Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirmeyi ve müşteri rezervasyon süreçlerini optimize etmeyi amaçlamaktadır. Şu anda projenin eksikleri aşağıda belirtilmiştir:
 
-## Eksikler
-
-1. **Fiyat Yönetimi:** Odaların fiyatlandırması ve dönemsel değişkenlikleri yönetmek için gerekli olan fiyat yönetimi henüz eklenmemiştir.
-
-2. **Rezervasyon Bilgileri:** Sistemde yapılan rezervasyonlarda kişi sayısı eklenmesi uygulanmamıştır.
-
 ## Proje İsterleri
 
 1. **Veritabanı:** Veritabanı tabloları aşağıdaki gibi oluşturulmalıdır:
     - `user`: admin ve acente çalışanı kullanıcı bilgilerini tutar.
-    - `otel`: otel bilgilerini tutar.
+    - `hotel`: otel bilgilerini tutar.
     - `season`: otel sezon kayıtlarını tutar.
-    - `pension_type`: otel pansiyon tiplerini tutar.
+    - `pension`: otel pansiyon tiplerini tutar.
     - `room`: otel odalarını ve özelliklerini tutar.
     - `reservation`: odaya yapılan rezervasyonları tutar.
+    - `hotel_features`: otel özelliklerini tutar.
 
 2. **Arayüz Tasarımı:** Java Swing kullanılmalıdır. Arayüz, kullanıcı dostu olmalı ve kendine özgü bir tasarıma sahip olmalıdır.
 
@@ -37,5 +32,3 @@ Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirme
 - **Veritabanı:** PostgreSQL 16 kullanıldı.
 - **Arayüz:** Java Swing kullanıldı.
 - **Java SDK Sürüm:** Java SDK 21 sürümü kullanıldı.
-
-Projenin eksiklikleri giderilerek sistemin tamamlanması ve Patika Turizm Acentesi'nin operasyonlarını dijitalleştirmesi hedeflenmektedir.
