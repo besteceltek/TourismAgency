@@ -5,13 +5,13 @@ Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirme
 ## Proje İsterleri
 
 1. **Veritabanı:** Veritabanı tabloları aşağıdaki gibi oluşturulmalıdır:
-    - `user`: admin ve acente çalışanı kullanıcı bilgilerini tutar.
-    - `hotel`: otel bilgilerini tutar.
-    - `season`: otel sezon kayıtlarını tutar.
-    - `pension`: otel pansiyon tiplerini tutar.
-    - `room`: otel odalarını ve özelliklerini tutar.
-    - `reservation`: odaya yapılan rezervasyonları tutar.
-    - `hotel_features`: otel özelliklerini tutar.
+   - `user`: admin ve acente çalışanı kullanıcı bilgilerini tutar.
+   - `hotel`: otel bilgilerini tutar.
+   - `season`: otel sezon kayıtlarını tutar.
+   - `pension`: otel pansiyon tiplerini tutar.
+   - `room`: otel odalarını ve özelliklerini tutar.
+   - `reservation`: odaya yapılan rezervasyonları tutar.
+   - `hotel_features`: otel özelliklerini tutar.
 
 2. **Arayüz Tasarımı:** Java Swing kullanılmalıdır. Arayüz, kullanıcı dostu olmalı ve kendine özgü bir tasarıma sahip olmalıdır.
 
@@ -27,27 +27,29 @@ Bu proje, Patika Turizm Acentesi'nin günlük operasyonlarını dijitalleştirme
 
 8. **Oda Arama ve Rezervasyon:** Acente çalışanları sisteme girdiği tarih aralığına, şehire veya otel adına göre oda arama yapabilmelidir. Rezervasyon işlemi tamamlandığında toplam fiyat otomatik olarak hesaplanmalı ve stok bilgisi güncellenmelidir.
 
-## Projenin Yapımı
+## Proje Yolculuğu
 
-Proje ile ilgili detaylı bilgiler için aşağıdaki videoyu izleyebilirsiniz.
+Projenin detaylarına ilişkin kapsamlı bir bakış için aşağıdaki resme tıklayıp videoyu izleyebilirsiniz.
 
+[<img width ="300px" src="https://taplink.st/a/0/2/4/2/66bd8f.png?1">](https://youtu.be/xjMg8fm_piQ)
 
+### Başlangıç
 
+Projeye başlarken ilk olarak giriş sayfasını ve admin kullanıcının göreceği arayüzü oluşturdum. Bu adımın ardından backend kısmını da hazırladım.
 
+<img width="300px" src="/images/Screenshot%202024-04-29%20at%2020.56.36.png" /><img width="600px" src="/images/Screenshot%202024-04-29%20at%2020.56.49.png" />
 
+### İlerleme
 
+Daha sonra sırasıyla otel, oda ve rezervasyon arayüzlerini ekledim ve her birinin backend kısmını yazdım.
 
+<img width="600px" src="/images/Screenshot%202024-04-29%20at%2020.57.23.png" />
+<img width="600px" src="/images/Screenshot%202024-04-29%20at%2020.58.04.png" />
+<img width="600px" src="/images/Screenshot%202024-04-29%20at%2021.35.38.png" />
 
-Projeye başlarken ilk önce giriş sayfasını ve admin kullanıcının göreceği arayüzü ve backendi hazırladım.
-<img width="30px" src="/images/Screenshot%202024-04-29%20at%2020.56.36.png" alt="Giriş Sayfası" />
-![Admin Arayüzü](/images/Screenshot%202024-04-29%20at%2020.56.49.png)
-![Kullanıcı Ekleme Arayüzü](/images/Screenshot%202024-04-29%20at%2020.56.57.png)
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
+### Sonuç
+
+Bu adımların ardışık olarak ilerlemesi, daha az hata ile karşılaşmamı ve temiz kod yazmamı sağladı. Projede SOLID prensiplerine uygun olmaya çalıştım ve her arayüzde yeni bir özellik ekleyerek daha fazla deneyim kazanmaya odaklandım.
 
 ## Teknik Detaylar
 
